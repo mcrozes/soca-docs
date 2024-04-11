@@ -43,19 +43,26 @@ user@host$ qsub myscript.sh
     - [Refer to this page to list all supported parameters](tutorials/integration-ec2-job-parameters/)
     - Jobs can also be submitted [via HTTP API](web-interface/control-hpc-job-with-http-web-rest-api/) or [via web interface](web-interface/submit-hpc-jobs-web-based-interface/)
 
-## OS agnostic and support for custom AMI
+## Multi Operating Systems support
 
-List of supported OS for Virtual Desktops and Compute Nodes:
+List of supported OS for Virtual Desktops, Compute Nodes and Infrastructure Hosts:
 
-- Amazon Linux 2
-- Amazon Linux 2023 (SOCA `2.7.5` and newer)
-- Centos 7
-- Red Hat Enterprise Linux 7
-- Red Hat Enterprise Linux 8 (SOCA `2.7.5` and newer)
-- Red Hat Enterprise Linux 9 (SOCA `2.7.5` and newer)
-- Rocky 8 (SOCA `2.7.5` and newer)
-- Rocky 9 (SOCA `2.7.5` and newer)
+| Operating System                  | Virtual Desktops       | Compute Nodes | Infrastructure Host  |
+|:----------------------------------|:-----------------------|:--------------|:---------------------|
+| Amazon Linux 2                    | ✅                      | ✅             | ✅                    |
+| Amazon Linux 2023 ^[1]^           | ✅                       | ✅             | ❌                    
+| Red Hat Enterprise Linux 7        | ✅ | ✅             | ✅                    |
+| Red Hat Enterprise Linux 8  ^[1]^    | ✅ | ✅             | ❌                    |
+| Red Hat Enterprise Linux 9  ^[1]^    | ✅ | ✅             | ❌                    |
+| CentOS 7                          | ✅ | ✅             | ✅                    |
+| Rocky 8  ^[1]^  | ✅ | ✅             | ❌                    |
+| Rocky 9  ^[1]^  | ✅ | ✅             | ❌                    |
+| Windows Server                    | ✅ | ❌               | ❌                      |
 
+^[1]^  SOCA `2.7.5` and newer versions
+
+
+## Support for custom AMI (Linux/WIndows)
 
 Customers can integrate their AMI automatically by simply using ==-l instance_ami=<ami_id\>== at job submission. There is no limitation in term of AMI numbers (you can have 10 jobs running simultaneously using 10 different AMIs). SOCA supports heterogeneous environment, so you can have concurrent jobs running different operating system on the same cluster. 
 
